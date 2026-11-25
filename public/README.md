@@ -54,28 +54,6 @@ phỏng và số chu kỳ CPU.
 khác để chạy firmware có sẵn. **Tải về** code Assembly (`.asm`) hoặc chương
 trình đã dịch (`.hex`).
 
-## Cấu trúc
-
-```
-public/
-  index.html    Trang chính (tham chiếu styles.css, app.js có ?v= chống cache)
-  styles.css    Toàn bộ CSS theo design system
-  pic16.js      Lõi: assembler 2-pass + CPU + TMR0/1/2 + ADC + USART + LCD HD44780
-                (ES module, không phụ thuộc DOM — import được từ Node để test)
-  examples.js   7 bài lab mẫu (code + hướng dẫn từng bước)
-  app.js        Nối UI với lõi: editor, board, panel giám sát, logic analyzer
-test-pic16.mjs  Kiểm thử Node cho lõi (không deploy)
-```
-
-## Chạy local và kiểm thử lõi
-
-```bash
-cd public && python3 -m http.server 8000
-# mở http://localhost:8000
-
-node test-pic16.mjs   # 34 kiểm thử: blink, nút nhấn, ADC, LCD, UART, Timer0, HEX, ngắt
-```
-
 Chức năng lấy cảm hứng từ cách tổ chức bàn thí nghiệm của ohmimic.com
 (board trực quan, bài lab từng bước, thanh điều khiển tốc độ, inspector
 GPIO, logic analyzer) — nhưng viết mới hoàn toàn cho PIC16F877A, không

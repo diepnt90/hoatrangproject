@@ -76,28 +76,6 @@ Board đấu dây như kit PIC phổ biến, mọi chân đều nối sẵn vớ
 - **Tải về:** tải code Assembly đang soạn (`.asm`) hoặc chương trình đã
   dịch (`.hex`) về máy.
 
-## Chạy thử trên máy và kiểm thử lõi
-
-```bash
-cd public && python3 -m http.server 8000
-# mở http://localhost:8000
-
-node test-pic16.mjs   # 34 kiểm thử: blink, nút nhấn, ADC, LCD, UART, Timer0, HEX, ngắt
-```
-
-## Cấu trúc
-
-```
-public/
-  index.html    Trang chính
-  styles.css    Toàn bộ CSS (navy #1E3A5F, accent #059669, Fira Code / Fira Sans)
-  pic16.js      Lõi: assembler 2-pass + CPU + TMR0/1/2 + ADC + USART + LCD HD44780
-                (ES module, không phụ thuộc DOM — import được từ Node để test)
-  examples.js   7 bài lab mẫu (code + hướng dẫn từng bước)
-  app.js        Nối UI với lõi: editor, board, panel giám sát, logic analyzer
-test-pic16.mjs  Kiểm thử Node cho lõi (không đưa lên trang)
-```
-
 Chức năng lấy cảm hứng từ cách tổ chức bàn thí nghiệm của
 [ohmimic.com](https://ohmimic.com/vi) (board trực quan, bài lab từng bước,
 inspector GPIO, logic analyzer) — nhưng toàn bộ code mô phỏng PIC viết mới
